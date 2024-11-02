@@ -23,7 +23,7 @@
 # YOUR SOLUTION STARTS HERE
 def dose(needs):
     # Check if any attribute exceeds 250 or if the total points exceed 500
-    if any(attr >= 250 for attr in needs) or sum(needs) > 500:
+    if any(attr > 250 for attr in needs) or sum(needs) > 500:
         return "No medicine given"
     
     result = []
@@ -35,5 +35,12 @@ def dose(needs):
         result.append((vitamins, injections))
     
     return result
+
+# Example Usage
+if __name__ == "__main__":
+    print(dose([250, 0, 250, 0, 0, 0]))  # Expected output: [(25, 0), (0, 0), (25, 0), (0, 0), (0, 0), (0, 0)]
+    print(dose([223, 12, 126, 0, 37, 12]))  # Expected output: [(22, 3), (1, 2), (12, 6), (0, 0), (3, 7), (1, 2)]
+    print(dose([500, 1, 2, 3, 4, 5]))  # Expected output: "No medicine given"
+    print(dose([260, 1, 2, 3, 4, 5]))  # Expected output: "No medicine given"
     #YOUR SOLUTION ENDS HERE
 
